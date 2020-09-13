@@ -1,14 +1,26 @@
 #include "EightBitRegister.h"
+//#include "SixteenBitRegister.h"
+#include "Processor.h"
 
 EightBitRegister testReg;
+SixteenBitRegister testAF;
+Processor cpu;
+
+
+
 
 
 int main()
 {
 	testReg.SetValue(0x0F);
-	uint8_t register_value = testReg.GetValue();
+	testAF.SetValue(0x0001);
 
-	std::cout << register_value << std::endl;
+	cpu.AF = testAF;
+
+	uint16_t AF_val = cpu.AF.GetValue();
+
+	uint8_t test_register_value = testReg.GetValue();
+
 
 
 
